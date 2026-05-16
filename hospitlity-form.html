@@ -133,19 +133,6 @@
       opacity: 1;
     }
 
-    .field input.fiad-placeholder::placeholder {
-      color: #000;
-      opacity: 1;
-    }
-
-    .field input.fiad-placeholder {
-      font-style: normal;
-    }
-
-    .field input.fiad-placeholder:placeholder-shown {
-      font-style: italic;
-    }
-
     .field-split {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -153,10 +140,6 @@
 
     .field-split input:first-child {
       border-right: 1px dotted var(--border);
-    }
-
-    .italic {
-      font-style: italic;
     }
 
     .section {
@@ -213,6 +196,15 @@
       min-height: 50px;
     }
 
+    .screen-number {
+      display: inline;
+    }
+
+    .print-number {
+      display: none;
+    }
+
+    .amount-print-only,
     .original-q8-print-only,
     .original-q11-print-only,
     .signature-print-only {
@@ -416,12 +408,6 @@
       }
     }
 
-    .screen-divider {
-        display: block;
-        margin: 18px 0 8px;
-        border-top: 1px solid #ccc;
-    }
-
     @media print {
       @page {
         size: letter portrait;
@@ -494,6 +480,18 @@
         font-size: 14px;
       }
 
+      .screen-number {
+        display: none;
+      }
+
+      .print-number {
+        display: inline;
+      }
+
+      .amount-print-only {
+        display: grid;
+      }
+
       .original-q8-print-only,
       .original-q11-print-only,
       .signature-print-only {
@@ -540,10 +538,6 @@
       a {
         color: #0070c0 !important;
       }
-
-      .screen-divider {
-        display: none !important;
-    }
     }
   </style>
 </head>
@@ -577,29 +571,42 @@
       </div>
     </div>
 
-    <div class="form-row">
+    <div class="form-row amount-print-only">
       <div class="label">4. Amount Requested:</div>
       <div class="field">
-        <input class="fiad-placeholder" type="text" name="amount" placeholder="(Completed by FIAD)" />
+        <input type="text" name="amount" />
       </div>
     </div>
 
     <div class="form-row">
-      <div class="label">5. Date of Function:</div>
+      <div class="label">
+        <span class="screen-number">4.</span>
+        <span class="print-number">5.</span>
+        Date of Function:
+      </div>
       <div class="field">
         <input type="text" name="dateOfFunction" placeholder="Date of the event being held" />
       </div>
     </div>
 
     <div class="form-row">
-      <div class="label">6. Place of Function:</div>
+      <div class="label">
+        <span class="screen-number">5.</span>
+        <span class="print-number">6.</span>
+        Place of Function:
+      </div>
       <div class="field">
         <input type="text" name="placeOfFunction" placeholder="Location of the event being held" />
       </div>
     </div>
 
     <section class="section">
-      <div class="section-title">7. Nature of Function. &nbsp;Relevant details include:</div>
+      <div class="section-title">
+        <span class="screen-number">6.</span>
+        <span class="print-number">7.</span>
+        Nature of Function. &nbsp;Relevant details include:
+      </div>
+
       <ul>
         <li>What group, building, or organization are these goods/services being purchased for?</li>
         <li>What project, or for what reason, will these goods/services be used?</li>
@@ -615,8 +622,6 @@
       </div>
     </section>
 
-    <div class="screen-divider"></div>
-
     <section class="section original-q8-print-only">
       <div class="section-title">8. Purpose/Benefit to the University:</div>
       <div class="textarea-field print-benefit-field" style="margin-top: 4px;">
@@ -625,7 +630,11 @@
     </section>
 
     <section class="section">
-      <div class="section-title">9. Anticipated Number of Persons Attending:</div>
+      <div class="section-title">
+        <span class="screen-number">7.</span>
+        <span class="print-number">9.</span>
+        Anticipated Number of Persons Attending:
+      </div>
 
       <table class="attendees-table">
         <thead>
@@ -663,7 +672,12 @@
     </section>
 
     <section class="section">
-      <div class="section-title">10. Affiliation of Non-University Attendees <em>(if applicable)</em>:</div>
+      <div class="section-title">
+        <span class="screen-number">8.</span>
+        <span class="print-number">10.</span>
+        Affiliation of Non-University Attendees <em>(if applicable)</em>:
+      </div>
+
       <div class="textarea-field" style="margin-top: 4px; min-height: 55px;">
         <textarea
           name="nonUniversityAffiliation"
@@ -672,8 +686,6 @@
         ></textarea>
       </div>
     </section>
-
-    <div class="screen-divider"></div>
 
     <section class="section original-q11-print-only">
       <div class="section-title">11. Type of Hospitality <em>(Completed by FIAD)</em>:</div>
@@ -704,7 +716,7 @@
       <strong>Policy Statement</strong>
       (<a href="https://policies.iu.edu/policies/fin-acc-50-hospitality-expenditures/index.html" target="_blank" tabindex="-1">FIN-ACC-50</a>).
       During the course of university business, it may be necessary to incur
-      <a href="https://policies.iu.edu/policies/fin-acc-50-hospitality-expenditures/index.html#hospitality" target="_blank"tabindex="-1">hospitality expenditures</a> for the purpose of promoting and furthering
+      <a href="https://policies.iu.edu/policies/fin-acc-50-hospitality-expenditures/index.html#hospitality" target="_blank" tabindex="-1">hospitality expenditures</a> for the purpose of promoting and furthering
       the mission of the university. As a public institution, Indiana University is entrusted with the funds of
       various constituents. In order to carry out its fiduciary duty, university employees must demonstrate prudent
       judgment when expending funds. The Fiscal Officer is responsible for ensuring the propriety and reasonableness
