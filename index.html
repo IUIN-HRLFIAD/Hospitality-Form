@@ -30,49 +30,10 @@
 
     .page {
       width: 8.5in;
-      min-height: auto;
       margin: 24px auto 12px;
       padding: 0.45in 0.42in;
       background: #fff;
       box-shadow: 0 0 12px rgba(0, 0, 0, 0.18);
-    }
-
-    .toolbar {
-      max-width: 8.5in;
-      margin: 0 auto 32px;
-      display: flex;
-      gap: 12px;
-      justify-content: flex-end;
-      font-family: Arial, sans-serif;
-    }
-
-    .btn {
-      border: 1px solid #000;
-      padding: 10px 18px;
-      font-size: 15px;
-      cursor: pointer;
-      border-radius: 4px;
-      transition: background-color 0.2s ease, color 0.2s ease;
-    }
-
-    .btn-print {
-      background: var(--iu-red);
-      color: #fff;
-      border-color: var(--iu-red);
-    }
-
-    .btn-print:hover {
-      background: var(--iu-red-hover);
-      border-color: var(--iu-red-hover);
-    }
-
-    .btn-reset {
-      background: #fff;
-      color: #000;
-    }
-
-    .btn-reset:hover {
-      background: #f0f0f0;
     }
 
     .header {
@@ -170,46 +131,22 @@
 
     .textarea-field {
       margin-top: 16px;
-      min-height: 76px;
+      min-height: 108px;
       align-items: flex-start;
     }
 
     .textarea-field textarea {
-      min-height: 74px;
+      min-height: 106px;
       resize: vertical;
       line-height: 1.25;
     }
 
-    .reasoning-field {
-      min-height: 108px;
+    .short-textarea {
+      min-height: 55px;
     }
 
-    .reasoning-field textarea {
-      min-height: 106px;
-      max-height: 106px;
-    }
-
-    .print-benefit-field {
-      min-height: 52px;
-    }
-
-    .print-benefit-field textarea {
-      min-height: 50px;
-    }
-
-    .screen-number {
-      display: inline;
-    }
-
-    .print-number {
-      display: none;
-    }
-
-    .amount-print-only,
-    .original-q8-print-only,
-    .original-q11-print-only,
-    .signature-print-only {
-      display: none;
+    .short-textarea textarea {
+      min-height: 53px;
     }
 
     .attendees-table {
@@ -244,63 +181,61 @@
       display: none;
     }
 
-    .hospitality-options {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2px 36px;
-      margin-top: 6px;
-      max-width: 560px;
+    .toolbar {
+      max-width: 8.5in;
+      margin: 0 auto 32px;
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+      font-family: Arial, sans-serif;
     }
 
-    .hospitality-options label {
-      font-weight: normal;
-      white-space: nowrap;
-    }
-
-    .signature-box {
+    .btn {
       border: 1px solid #000;
-      padding: 16px 6px 12px;
-      margin-top: 30px;
-    }
-
-    .signature-line {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-      align-items: center;
-      margin-bottom: 16px;
-      font-weight: bold;
-    }
-
-    .line-input {
-      border: 0;
-      border-bottom: 1px solid #000;
-      outline: 0;
-      min-width: 180px;
-      font-family: "Times New Roman", Times, serif;
+      padding: 10px 18px;
       font-size: 15px;
-      flex: 1;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.2s ease, color 0.2s ease;
     }
 
-    .date-input {
-      max-width: 150px;
-      flex: 0 1 150px;
+    .btn-generate {
+      background: var(--iu-red);
+      color: #fff;
+      border-color: var(--iu-red);
     }
 
-    .account-row {
-      font-weight: bold;
-      display: flex;
-      gap: 6px;
-      align-items: center;
+    .btn-generate:hover {
+      background: var(--iu-red-hover);
+      border-color: var(--iu-red-hover);
     }
 
-    .account-row input {
-      border: 0;
-      border-bottom: 1px solid #000;
-      outline: 0;
-      width: 190px;
-      font-family: "Times New Roman", Times, serif;
-      font-size: 15px;
+    .btn-reset {
+      background: #fff;
+      color: #000;
+    }
+
+    .btn-reset:hover {
+      background: #f0f0f0;
+    }
+
+    .status-message {
+      max-width: 8.5in;
+      margin: 0 auto 20px;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      color: #333;
+      display: none;
+    }
+
+    .status-message.error {
+      color: #990000;
+      display: block;
+    }
+
+    .status-message.success {
+      color: #006600;
+      display: block;
     }
 
     .policy {
@@ -326,20 +261,9 @@
 
       .page {
         width: 100%;
-        min-height: auto;
         margin: 0;
         padding: 22px 16px;
         box-shadow: none;
-      }
-
-      .toolbar {
-        margin: 16px;
-        justify-content: stretch;
-        flex-direction: column;
-      }
-
-      .btn {
-        width: 100%;
       }
 
       .header .university {
@@ -407,143 +331,25 @@
         font-family: "Times New Roman", Times, serif;
         font-size: 15px;
       }
-    }
-
-    @media print {
-      @page {
-        size: letter portrait;
-        margin: 0.35in;
-      }
-
-      html,
-      body {
-        width: 8.5in;
-        min-height: 11in;
-        margin: 0;
-        padding: 0;
-        background: #fff;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
-
-      body {
-        font-size: 14px;
-      }
 
       .toolbar {
-        display: none !important;
+        margin: 16px;
+        flex-direction: column;
       }
 
-      .page {
+      .btn {
         width: 100%;
-        min-height: auto;
-        margin: 0;
-        padding: 0.15in 0 0 0;
-        box-shadow: none;
-        page-break-after: avoid;
       }
 
-      .header {
-        margin-bottom: 14px;
+      .status-message {
+        margin: 0 16px 20px;
       }
 
-      .header .university {
-        font-size: 19px;
-      }
-
-      .header .title {
-        font-size: 20px;
-      }
-
-      .section {
-        margin-top: 12px;
-      }
-
-      .textarea-field {
-        margin-top: 10px;
-      }
-
-      .reasoning-field {
-        min-height: 108px;
-      }
-
-      .reasoning-field textarea {
-        min-height: 106px;
-        font-size: 14px;
-      }
-
-      .print-benefit-field {
-        min-height: 52px;
-      }
-
-      .print-benefit-field textarea {
-        min-height: 50px;
-        font-size: 14px;
-      }
-
-      .screen-number {
-        display: none;
-      }
-
-      .print-number {
-        display: inline;
-      }
-
-      .amount-print-only {
-        display: grid;
-      }
-
-      .original-q8-print-only,
-      .original-q11-print-only,
-      .signature-print-only {
-        display: block;
-      }
-
-      .mobile-attendees {
-        display: none !important;
-      }
-
-      .attendees-table {
-        display: table !important;
-      }
-
-      .attendees-table th {
-        background: var(--light-gray) !important;
-      }
-
-      .highlight {
-        background: var(--highlight) !important;
-      }
-
-      .signature-box {
-        margin-top: 22px;
-        padding-top: 20px;
-      }
-
-      .policy {
-        margin-top: 18px;
-        font-size: 12px;
-        line-height: 1.42;
-      }
-
-      input,
-      textarea {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
-
-      textarea {
-        resize: none;
-      }
-
-      a {
-        color: #0070c0 !important;
-      }
     }
   </style>
 </head>
 
-<body style="margin-bottom: 20px;">
+<body>
   <form class="page" id="hospitalityForm">
     <header class="header">
       <div class="university">Indiana University at Indianapolis</div>
@@ -572,41 +378,22 @@
       </div>
     </div>
 
-    <div class="form-row amount-print-only">
-      <div class="label">4. Amount Requested:</div>
-      <div class="field">
-        <input type="text" name="amount" />
-      </div>
-    </div>
-
     <div class="form-row">
-      <div class="label">
-        <span class="screen-number">4.</span>
-        <span class="print-number">5.</span>
-        Date of Function:
-      </div>
+      <div class="label">4. Date of Function:</div>
       <div class="field">
         <input type="text" name="dateOfFunction" placeholder="Date of the event being held" />
       </div>
     </div>
 
     <div class="form-row">
-      <div class="label">
-        <span class="screen-number">5.</span>
-        <span class="print-number">6.</span>
-        Place of Function:
-      </div>
+      <div class="label">5. Place of Function:</div>
       <div class="field">
         <input type="text" name="placeOfFunction" placeholder="Location of the event being held" />
       </div>
     </div>
 
     <section class="section">
-      <div class="section-title">
-        <span class="screen-number">6.</span>
-        <span class="print-number">7.</span>
-        Nature of Function. &nbsp;Relevant details include:
-      </div>
+      <div class="section-title">6. Nature of Function. &nbsp;Relevant details include:</div>
 
       <ul>
         <li>What group, building, or organization are these goods/services being purchased for?</li>
@@ -618,24 +405,13 @@
         Any reasoning you provide will be submitted to IU Purchasing.
       </div>
 
-      <div class="textarea-field reasoning-field">
+      <div class="textarea-field">
         <textarea name="reasoning" placeholder="Click here to enter your reasoning for your hospitality purchase."></textarea>
       </div>
     </section>
 
-    <section class="section original-q8-print-only">
-      <div class="section-title">8. Purpose/Benefit to the University:</div>
-      <div class="textarea-field print-benefit-field" style="margin-top: 4px;">
-        <textarea name="purposeBenefit">To provide exceptional service and a positive experience for the residential student and their family while supporting the mission of IU as student retention and academic success is higher among those who live on campus.</textarea>
-      </div>
-    </section>
-
     <section class="section">
-      <div class="section-title">
-        <span class="screen-number">7.</span>
-        <span class="print-number">9.</span>
-        Anticipated Number of Persons Attending:
-      </div>
+      <div class="section-title">7. Anticipated Number of Persons Attending:</div>
 
       <table class="attendees-table">
         <thead>
@@ -647,9 +423,15 @@
         </thead>
         <tbody>
           <tr>
-            <td><input id="employeesDesktop" type="number" min="0" name="employees" placeholder="Enter a number" /></td>
-            <td><input id="studentsDesktop" type="number" min="0" name="students" placeholder="Enter a number" /></td>
-            <td><input id="nonUniversityDesktop" type="number" min="0" name="nonUniversity" placeholder="Enter a number" /></td>
+            <td>
+              <input id="employeesDesktop" type="number" min="0" name="employees" placeholder="Enter a number" />
+            </td>
+            <td>
+              <input id="studentsDesktop" type="number" min="0" name="students" placeholder="Enter a number" />
+            </td>
+            <td>
+              <input id="nonUniversityDesktop" type="number" min="0" name="nonUniversity" placeholder="Enter a number" />
+            </td>
           </tr>
         </tbody>
       </table>
@@ -673,111 +455,229 @@
     </section>
 
     <section class="section">
-      <div class="section-title">
-        <span class="screen-number">8.</span>
-        <span class="print-number">10.</span>
-        Affiliation of Non-University Attendees <em>(if applicable)</em>:
+      <div class="section-title">8. Affiliation of Non-University Attendees <em>(if applicable)</em>:</div>
+
+      <div class="textarea-field short-textarea" style="margin-top: 4px;">
+        <textarea name="nonUniversityAffiliation" placeholder="Click here to enter the affiliation of the non-university attendees."></textarea>
       </div>
 
-      <div class="textarea-field" style="margin-top: 4px; min-height: 55px;">
-        <textarea
-          name="nonUniversityAffiliation"
-          style="min-height: 53px; max-height: 53px;"
-          placeholder="Click here to enter the affiliation of the non-university attendees."
-        ></textarea>
-      </div>
-    </section>
-
-    <section class="section original-q11-print-only">
-      <div class="section-title">11. Type of Hospitality <em>(Completed by FIAD)</em>:</div>
-
-      <div class="hospitality-options">
-        <label><input type="checkbox" name="hospitalityType" value="General Hospitality" /> General Hospitality (4025)</label>
-        <label><input type="checkbox" name="hospitalityType" value="Student Hospitality" /> Student Hospitality (4028)</label>
-        <label><input type="checkbox" name="hospitalityType" value="Conferences & Workshops" /> Conferences &amp; Workshops (4026)</label>
-        <label><input type="checkbox" name="hospitalityType" value="Faculty/Staff Recruiting" /> Faculty/Staff Recruiting (4047)</label>
-      </div>
-    </section>
-
-    <section class="signature-box signature-print-only">
-      <div class="signature-line">
-        <span>Signature of Fiscal Officer or Designee:</span>
-        <input class="line-input" type="text" name="signature" />
-        <span>Date:</span>
-        <input class="line-input date-input" type="text" name="signatureDate" />
-      </div>
-
-      <div class="account-row">
-        <span>Account #:</span>
-        <input type="text" name="accountNumber" />
-      </div>
-    </section>
-
-    <section class="policy">
-      <strong>Policy Statement</strong>
-      (<a href="https://policies.iu.edu/policies/fin-acc-50-hospitality-expenditures/index.html" target="_blank" tabindex="-1">FIN-ACC-50</a>).
-      During the course of university business, it may be necessary to incur
-      <a href="https://policies.iu.edu/policies/fin-acc-50-hospitality-expenditures/index.html#hospitality" target="_blank" tabindex="-1">hospitality expenditures</a> for the purpose of promoting and furthering
-      the mission of the university. As a public institution, Indiana University is entrusted with the funds of
-      various constituents. In order to carry out its fiduciary duty, university employees must demonstrate prudent
-      judgment when expending funds. The Fiscal Officer is responsible for ensuring the propriety and reasonableness
-      of all hospitality expenditures. Additionally, all funds must always be used for institutional benefit, never
-      for the purpose of personal benefit or privilege of an individual. Therefore, all hospitality expenditures must
-      meet the criteria of the business connection requirement to be considered
-      <a href="https://policies.iu.edu/policies/fin-acc-50-hospitality-expenditures/index.html#business" target="_blank" tabindex="-1">business expenses</a> under the university’s
-      <a href="https://policies.iu.edu/policies/fin-acc-620-reimbursement-under-accountable-plan/index.html" target="_blank" tabindex="-1">Accountable Plan policy (FIN-ACC-620)</a>.
+      <section class="policy">
+        <strong>Policy Statement</strong>
+        (<a href="https://policies.iu.edu/policies/fin-acc-50-hospitality-expenditures/index.html" target="_blank">FIN-ACC-50</a>).
+        During the course of university business, it may be necessary to incur
+        <a href="https://policies.iu.edu/policies/fin-acc-50-hospitality-expenditures/index.html#hospitality" target="_blank">hospitality expenditures</a>
+        for the purpose of promoting and furthering the mission of the university. As a public institution,
+        Indiana University is entrusted with the funds of various constituents. In order to carry out its
+        fiduciary duty, university employees must demonstrate prudent judgment when expending funds. The
+        Fiscal Officer is responsible for ensuring the propriety and reasonableness of all hospitality
+        expenditures. Additionally, all funds must always be used for institutional benefit, never for the
+        purpose of personal benefit or privilege of an individual. Therefore, all hospitality expenditures
+        must meet the criteria of the business connection requirement to be considered
+        <a href="https://policies.iu.edu/policies/fin-acc-50-hospitality-expenditures/index.html#business" target="_blank">business expenses</a>
+        under the university’s
+        <a href="https://policies.iu.edu/policies/fin-acc-620-reimbursement-under-accountable-plan/index.html" target="_blank">Accountable Plan policy (FIN-ACC-620)</a>.
+      </section>
     </section>
   </form>
 
   <div class="toolbar">
     <button class="btn btn-reset" type="button" onclick="resetForm()">Reset Form</button>
-    <button class="btn btn-print" type="button" onclick="printForm()">Print / Save as PDF</button>
+    <button class="btn btn-generate" type="button" onclick="generatePDF()">Generate PDF</button>
   </div>
 
-  <script>
-    function printForm() {
+  <div id="statusMessage" class="status-message"></div>
+
+  <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+
+<script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+
+<script>
+  const PDF_TEMPLATE_URL = "hospitality-template.pdf";
+  const OUTPUT_FILE_SUFFIX = "HospForm";
+
+  async function generatePDF() {
+    setStatus("");
+
+    try {
       syncMobileAttendeeFieldsToDesktop();
-      window.print();
-    }
 
-    function resetForm() {
-      const form = document.getElementById("hospitalityForm");
-      const confirmed = window.confirm("Are you sure you want to clear this form?");
-
-      if (confirmed) {
-        form.reset();
-
-        document.querySelectorAll("[data-sync-target]").forEach((input) => {
-          input.value = "";
-        });
-      }
-    }
-
-    function syncMobileAttendeeFieldsToDesktop() {
-      document.querySelectorAll("[data-sync-target]").forEach((mobileInput) => {
-        const target = document.getElementById(mobileInput.dataset.syncTarget);
-
-        if (target && mobileInput.value !== "") {
-          target.value = mobileInput.value;
+      const existingPdfBytes = await fetch(PDF_TEMPLATE_URL).then((response) => {
+        if (!response.ok) {
+          throw new Error("Could not load the PDF template.");
         }
+
+        return response.arrayBuffer();
       });
+
+      const pdfDoc = await PDFLib.PDFDocument.load(existingPdfBytes);
+      const pdfForm = pdfDoc.getForm();
+
+      setTextField(pdfForm, "Name", getFieldValue("name"));
+      setTextField(pdfForm, "Email", getFieldValue("email"));
+      setTextField(pdfForm, "Supplier", getFieldValue("supplier"));
+      setTextField(pdfForm, "Address", getFieldValue("supplierAddress"));
+
+      // This field exists in the official PDF but is intentionally left blank for FIAD.
+      setTextField(pdfForm, "Amount_Requested", "");
+
+      setTextField(pdfForm, "Date_of_Function", getFieldValue("dateOfFunction"));
+      setTextField(pdfForm, "Place_of_Function", getFieldValue("placeOfFunction"));
+      setTextField(pdfForm, "Nature_of_Function", getFieldValue("reasoning"));
+
+      setTextField(pdfForm, "Num_Employees", getFieldValue("employees"));
+      setTextField(pdfForm, "Num_Students", getFieldValue("students"));
+      setTextField(pdfForm, "Num_Affiliated", getFieldValue("nonUniversity"));
+      setTextField(pdfForm, "Affiliated_Description", getFieldValue("nonUniversityAffiliation"));
+
+      // Do not flatten. Keeping fields editable helps during routing.
+      const pdfBytes = await pdfDoc.save();
+
+      downloadPDF(pdfBytes, buildDownloadFileName());
+
+      setStatus("PDF generated successfully.", "success");
+    } catch (error) {
+      console.error(error);
+      setStatus(
+        "Sorry, something went wrong while generating the PDF. Make sure hospitality-template.pdf is in the same folder as this HTML file.",
+        "error"
+      );
+    }
+  }
+
+  function getFieldValue(fieldName) {
+    const field = document.querySelector(`[name="${fieldName}"]`);
+    return field ? field.value.trim() : "";
+  }
+
+  function setTextField(pdfForm, fieldName, value) {
+    try {
+      const field = pdfForm.getTextField(fieldName);
+      field.setText(value || "");
+    } catch (error) {
+      console.warn(`PDF field not found: ${fieldName}`);
+    }
+  }
+
+  function buildDownloadFileName() {
+    const supplier = getFieldValue("supplier");
+
+    const fullName = getFieldValue("name");
+    const nameParts = fullName.split(/\s+/).filter(Boolean);
+    const firstName = nameParts[0] || "First Name";
+    const lastName = nameParts.length > 1 ? nameParts.slice(1).join(" ") : "Last Name";
+
+    const dateOfFunction = formatDateForFileName(getFieldValue("dateOfFunction"));
+
+    const parts = [
+      supplier || "Supplier",
+      firstName,
+      lastName,
+      dateOfFunction || "Date of Function",
+      OUTPUT_FILE_SUFFIX
+    ];
+
+    return parts.map(cleanFileNamePart).join(" ") + ".pdf";
+  }
+
+  function formatDateForFileName(value) {
+    if (!value) return "";
+
+    const cleaned = value.trim();
+
+    // Handles yyyy-mm-dd from date inputs.
+    const isoMatch = cleaned.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+    if (isoMatch) {
+      const [, year, month, day] = isoMatch;
+      return `${month.padStart(2, "0")}-${day.padStart(2, "0")}-${year}`;
     }
 
+    // Handles mm/dd/yyyy, m/d/yyyy, mm-dd-yyyy, m-d-yyyy.
+    const usMatch = cleaned.match(/^(\d{1,2})[\/-](\d{1,2})[\/-](\d{4})$/);
+    if (usMatch) {
+      const [, month, day, year] = usMatch;
+      return `${month.padStart(2, "0")}-${day.padStart(2, "0")}-${year}`;
+    }
+
+    // Fallback: keep user text, but replace slashes with hyphens.
+    return cleaned.replace(/\//g, "-");
+  }
+
+  function cleanFileNamePart(value) {
+    return String(value || "")
+      .trim()
+      .replace(/[$,]/g, "")
+      .replace(/[\/\\:*?"<>|#%{}~&]/g, "")
+      .replace(/\s+/g, " ");
+  }
+
+  function downloadPDF(pdfBytes, fileName) {
+    const blob = new Blob([pdfBytes], { type: "application/pdf" });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = fileName;
+
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    URL.revokeObjectURL(url);
+  }
+
+  function resetForm() {
+    const form = document.getElementById("hospitalityForm");
+    const confirmed = window.confirm("Are you sure you want to clear this form?");
+
+    if (confirmed) {
+      form.reset();
+
+      document.querySelectorAll("[data-sync-target]").forEach((input) => {
+        input.value = "";
+      });
+
+      setStatus("");
+    }
+  }
+
+  function syncMobileAttendeeFieldsToDesktop() {
     document.querySelectorAll("[data-sync-target]").forEach((mobileInput) => {
       const target = document.getElementById(mobileInput.dataset.syncTarget);
 
-      mobileInput.addEventListener("input", () => {
-        if (target) {
-          target.value = mobileInput.value;
-        }
-      });
-
-      if (target) {
-        target.addEventListener("input", () => {
-          mobileInput.value = target.value;
-        });
+      if (target && mobileInput.value !== "") {
+        target.value = mobileInput.value;
       }
     });
-  </script>
+  }
+
+  document.querySelectorAll("[data-sync-target]").forEach((mobileInput) => {
+    const target = document.getElementById(mobileInput.dataset.syncTarget);
+
+    mobileInput.addEventListener("input", () => {
+      if (target) {
+        target.value = mobileInput.value;
+      }
+    });
+
+    if (target) {
+      target.addEventListener("input", () => {
+        mobileInput.value = target.value;
+      });
+    }
+  });
+
+  function setStatus(message, type = "") {
+    const status = document.getElementById("statusMessage");
+
+    if (!status) return;
+
+    status.textContent = message;
+    status.className = "status-message";
+
+    if (type) {
+      status.classList.add(type);
+    }
+  }
+</script>
 </body>
 </html>
