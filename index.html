@@ -569,10 +569,10 @@
     const dateOfFunction = formatDateForFileName(getFieldValue("dateOfFunction"));
 
     const parts = [
+      dateOfFunction || "Date of Function",
       supplier || "Supplier",
       firstName,
       lastName,
-      dateOfFunction || "Date of Function",
       OUTPUT_FILE_SUFFIX
     ];
 
@@ -581,25 +581,27 @@
 
   function formatDateForFileName(value) {
     if (!value) return "";
-
+  
     const cleaned = value.trim();
-
+  
     // Handles yyyy-mm-dd from date inputs.
     const isoMatch = cleaned.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
     if (isoMatch) {
       const [, year, month, day] = isoMatch;
-      return `${month.padStart(2, "0")}-${day.padStart(2, "0")}-${year}`;
+      return `${Number(month)}.${Number(day)}.${year}`;
     }
-
+  
     // Handles mm/dd/yyyy, m/d/yyyy, mm-dd-yyyy, m-d-yyyy.
-    const usMatch = cleaned.match(/^(\d{1,2})[\/-](\d{1,2})[\/-](\d{4})$/);
+    const usMatch = cleaned.match(/^(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{4})$/);
     if (usMatch) {
       const [, month, day, year] = usMatch;
-      return `${month.padStart(2, "0")}-${day.padStart(2, "0")}-${year}`;
+      return `${Number(month)}.${Number(day)}.${year}`;
     }
-
-    // Fallback: keep user text, but replace slashes with hyphens.
-    return cleaned.replace(/\//g, "-");
+  
+    // Fallback: keep user text, but convert common separators to periods.
+    return cleaned
+      .replace(/[\/-]/g, ".")
+      .replace(/\s+/g, " ");
   }
 
   function cleanFileNamePart(value) {
